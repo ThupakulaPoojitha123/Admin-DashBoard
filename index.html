@@ -1,0 +1,100 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Load Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="dashboard">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <h2>Admin Panel</h2>
+      <ul>
+        <li class="active" data-tab="dashboard">Dashboard</li>
+        <li data-tab="students">Students</li>
+        <li data-tab="settings">Settings</li>
+      </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Dashboard Tab -->
+      <section id="dashboard" class="tab active-tab">
+        <h1>Dashboard</h1>
+
+        <div class="cards">
+          <div class="card">
+            <h3>Total Students</h3>
+            <p id="totalStudents">0</p>
+          </div>
+          <div class="card">
+            <h3>Average Marks</h3>
+            <p id="avgMarks">0</p>
+          </div>
+          <div class="card">
+            <h3>Average Attendance</h3>
+            <p id="avgAttendance">0%</p>
+          </div>
+        </div>
+
+        <h2>Students Overview</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Marks</th>
+              <th>Attendance (%)</th>
+            </tr>
+          </thead>
+          <tbody id="studentTable"></tbody>
+        </table>
+
+        <div class="charts">
+          <canvas id="marksChart"></canvas>
+          <canvas id="attendanceChart"></canvas>
+        </div>
+      </section>
+
+      <!-- Students Tab -->
+      <section id="students" class="tab">
+        <h1>Students</h1>
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Marks</th>
+              <th>Attendance (%)</th>
+            </tr>
+          </thead>
+          <tbody id="studentTable2"></tbody>
+        </table>
+      </section>
+
+      <!-- Settings Tab -->
+      <section id="settings" class="tab">
+        <h1>Settings</h1>
+        <form id="editForm">
+          <label for="name">Name:</label>
+          <input type="text" id="name" required>
+
+          <label for="marks">Marks:</label>
+          <input type="number" id="marks" min="0" max="100" required>
+
+          <label for="attendance">Attendance (%):</label>
+          <input type="number" id="attendance" min="0" max="100" required>
+
+          <button type="submit">Add / Update Student</button>
+        </form>
+      </section>
+    </main>
+  </div>
+
+  <!-- JS at the end -->
+  <script src="script.js"></script>
+</body>
+</html>
